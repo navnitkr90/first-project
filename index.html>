@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marks Calculator</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; background: #f0f0f0; }
+    .box { background: white; padding: 20px; width: 300px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px gray; }
+    input { margin: 5px; padding: 8px; width: 80%; }
+    button { padding: 10px 20px; background: green; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Marks Project</h2>
+    <input type="number" id="m1" placeholder="Subject 1 ke marks">
+    <input type="number" id="m2" placeholder="Subject 2 ke marks">
+    <input type="number" id="m3" placeholder="Subject 3 ke marks">
+    <button onclick="calculate()">Result Dekho</button>
+    <h3 id="result"></h3>
+  </div>
+
+  <script>
+    function calculate() {
+      let a = parseInt(document.getElementById('m1').value) || 0;
+      let b = parseInt(document.getElementById('m2').value) || 0;
+      let c = parseInt(document.getElementById('m3').value) || 0;
+      let total = a + b + c;
+      let percent = total / 3;
+      let grade = percent >= 60 ? "Pass - First Division" : percent >= 33 ? "Pass" : "Fail";
+      document.getElementById('result').innerHTML = 
+        "Total: " + total + "<br>Percentage: " + percent.toFixed(2) + "%<br>Result: " + grade;
+    }
+  </script>
+</body>
+</html>
